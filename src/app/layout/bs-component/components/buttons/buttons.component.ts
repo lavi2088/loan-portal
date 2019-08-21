@@ -10,7 +10,7 @@ export class ButtonsComponent implements OnInit {
     model: any = 1;
     public radioGroupForm: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) {}
+    constructor(public formBuilder: FormBuilder) {}
 
     ngOnInit() {
         this.radioGroupForm = this.formBuilder.group({

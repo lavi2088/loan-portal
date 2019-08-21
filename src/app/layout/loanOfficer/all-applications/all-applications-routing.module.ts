@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListOfLoanApplicationComponent } from './list-of-loan-application.component';
+import { AllApplicationsComponent } from './all-applications.component';
 
 const routes: Routes = [
-  {path: '', component: ListOfLoanApplicationComponent}
+    {path: '', component: AllApplicationsComponent}
 ];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class ListOfLoanApplicationRoutingModule { }
+export class AllApplicationsRoutingModule { }

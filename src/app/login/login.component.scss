@@ -1,4 +1,4 @@
-$topnav-background-color: skyblue;
+$topnav-background-color: #222;
 :host {
     display: block;
 }
@@ -85,7 +85,7 @@ $topnav-background-color: skyblue;
         }
     }
     .form-content {
-        padding: 40px 0;
+        padding: 0px 0;
     }
     .user-avatar {
         -webkit-border-radius: 50%;

@@ -3,6 +3,9 @@ import { CommonModule } from '@angular/common';
 
 import { ListOfLoanApplicationRoutingModule } from './list-of-loan-application-routing.module';
 import { ListOfLoanApplicationComponent } from './list-of-loan-application.component';
+import { FormsModule } from '@angular/forms';
+import { ApplicationDetailsComponent } from '../application-details/application-details.component';
+import { ApplicationDetailsModule } from '../application-details/application-details.module';
 
 @NgModule({
   declarations: [
@@ -10,7 +13,16 @@ import { ListOfLoanApplicationComponent } from './list-of-loan-application.compo
   ],
   imports: [
     CommonModule,
-    ListOfLoanApplicationRoutingModule
+    ListOfLoanApplicationRoutingModule,
+    FormsModule,
+    ApplicationDetailsModule
+  ],
+  exports: [
+    FormsModule,
+    ApplicationDetailsComponent
+  ],
+  entryComponents: [
+    ApplicationDetailsComponent
   ]
 })
 export class ListOfLoanApplicationModule { }

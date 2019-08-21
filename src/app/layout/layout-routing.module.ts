@@ -15,9 +15,15 @@ const routes: Routes = [
             { path: 'grid', loadChildren: () => import('./grid/grid.module').then(m => m.GridModule) },
             { path: 'components', loadChildren: () => import('./bs-component/bs-component.module').then(m => m.BsComponentModule) },
             { path: 'blank-page', loadChildren: () => import('./blank-page/blank-page.module').then(m => m.BlankPageModule) },
+            // tslint:disable-next-line: max-line-length
             { path: 'newloan', loadChildren: () => import('./new-loan-application/new-loan-application.module').then(m => m.NewLoanApplicationModule) },
+            // tslint:disable-next-line: max-line-length
             { path: 'loanlist', loadChildren: () => import('./list-of-loan-application/list-of-loan-application.module').then(m => m.ListOfLoanApplicationModule) },
-            { path: 'loanstatus', loadChildren: () => import('./loan-status/loan-status.module').then(m => m.LoanStatusModule) }
+            { path: 'loanstatus', loadChildren: () => import('./loan-status/loan-status.module').then(m => m.LoanStatusModule) },
+            // tslint:disable-next-line: max-line-length
+            //{ path: 'applicationdetail', loadChildren: () => import('./application-details/application-details.module').then(m => m.ApplicationDetailsModule)}
+            // tslint:disable-next-line: max-line-length
+            { path: 'allapplications', loadChildren: () => import('./loanOfficer/all-applications/all-applications.module').then(m => m.AllApplicationsModule) },
 
         ]
     }

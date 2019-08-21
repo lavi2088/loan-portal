@@ -26,4 +26,19 @@ export class HttpService {
 
     return this.httpClient.post(this.baseUrl+`/loanApproval/process/startProcess`, JSON.stringify(inputParam), this.httpOptions);
   }
+
+  getAllLoanApplications(inputParam): Observable<any> {
+
+    return this.httpClient.post(this.baseUrl +`/allApplicationDetails`, JSON.stringify(inputParam), this.httpOptions);
+  }
+
+  getAllLoanApplicationsForUser(inputParam): Observable<any> {
+
+    return this.httpClient.get(this.baseUrl +`/allApplicationDetailsByUser?userId=` + inputParam);
+  }
+
+  completeLoanApplications(inputParam): Observable<any> {
+
+    return this.httpClient.post(this.baseUrl+`/loanApproval/task/completeTask`, JSON.stringify(inputParam), this.httpOptions);
+  }
 }

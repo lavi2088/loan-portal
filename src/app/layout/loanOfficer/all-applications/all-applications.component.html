@@ -3,22 +3,22 @@
 <table class="table table-striped">
   <thead>
   <tr>
-    <th scope="col">User Id</th>
+    <th scope="col">Case Id</th>
     <th scope="col">Name</th>
     <th scope="col">Loan Amount</th>
     <th scope="col">Credit Score</th>
-    <th scope="col">Email</th>
+    <th scope="col">Income</th>
   </tr>
   </thead>
   <tbody>
-  <tr *ngFor="let loanApp of getLoanApp" (click)="rowClicked(loanApp)">
+  <tr *ngFor="let loanApp of loanApplications" (click)="rowClicked(loanApp)">
     <th scope="row">{{ loanApp.userId }}</th>
     <td>
       {{ loanApp.firstName + ' ' + loanApp.lastName }}
     </td>
     <td>{{ loanApp.loanAmount}}</td>
     <td>{{ loanApp.creditScore }}</td>
-    <td [ngClass]="{'text-success': loanApp.status == 'Approved', 'text-warning': loanApp.status == 'In Review', 'text-danger': loanApp.status == 'Declined'}">{{ loanApp.email }}</td>
+    <td [ngClass]="{'text-success': loanApp.status == 'Approved', 'text-warning': loanApp.status == 'In Review', 'text-danger': loanApp.status == 'Declined'}">{{ loanApp.income }}</td>
   </tr>
   </tbody>
 </table>

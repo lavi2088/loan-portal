@@ -9,4 +9,6 @@ export class NewLoan {
     loanAmount: string;
     creditScore: string;
     email: string;
+    apr: string;
+    comments: string;
 }

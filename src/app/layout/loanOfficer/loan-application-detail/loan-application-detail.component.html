@@ -1,0 +1,166 @@
+<div class="modal-header">
+    <h4 class="modal-title">Application Detail</h4>
+    <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+        <span aria-hidden="true">&times;</span>
+    </button>
+</div>
+<div class="modal-body">
+    <!-- <form (ngSubmit)="f.form.valid && submitBtn(f)" #f="ngForm" autocomplete="off" novalidate> -->
+    <form novalidate (ngSubmit)="onSubmit(f, $event)" #f="ngForm">
+        <div class="row">
+            <div class="col-12 col-md">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label>First Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="firstName"
+                            [(ngModel)]="newLoanObj.firstName"
+                            required
+                            #firstName="ngModel"
+                            [disabled]="1"
+                        />
+                        <div class="text-danger" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                            <p *ngIf="firstName.errors.required">First name is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),
+                            'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+                        }"
+                    >
+                        <label>Last Name</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="lastName"
+                            [(ngModel)]="newLoanObj.lastName"
+                            required
+                            #lastName="ngModel"
+                            [disabled]="1"
+                        />
+                        <div class="text-danger" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                            <p *ngIf="lastName.errors.required">Last name is required</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div
+                    class="form-group"
+                    [ngClass]="{
+                        'has-danger': ssn.invalid && (ssn.dirty || ssn.touched),
+                        'has-success': ssn.valid && (ssn.dirty || ssn.touched)
+                    }"
+                >
+                    <label>SSN</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="ssn"
+                        [(ngModel)]="newLoanObj.SSN"
+                        required
+                        #ssn="ngModel"
+                        [disabled]="1"
+                    />
+                    <div class="text-danger" *ngIf="ssn.errors && (ssn.dirty || ssn.touched)">
+                        <p *ngIf="ssn.errors.required">SSN is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Income</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="income"
+                        [(ngModel)]="newLoanObj.income"
+                        required
+                        #income="ngModel"
+                        [disabled]="1"
+                    />
+                    <div class="text-danger" *ngIf="income.errors && (income.dirty || income.touched)">
+                        <p *ngIf="income.errors.required">Income is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Credit Score</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="creditScore"
+                        [(ngModel)]="newLoanObj.creditScore"
+                        required
+                        #creditScore="ngModel"
+                        [disabled]="1"
+                    />
+                    <div class="text-danger" *ngIf="creditScore.errors && (creditScore.dirty || creditScore.touched)">
+                        <p *ngIf="creditScore.errors.required">Credit Score is required</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12 col-md">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="email"
+                        [(ngModel)]="newLoanObj.email"
+                        required
+                        #email="ngModel"
+                        [disabled]="!isEdit"
+                    />
+                    <div class="text-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                        <p *ngIf="creditScore.errors.required">Email is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Loan Amount</label>
+                    <input
+                        type="text"
+                        class="form-control"
+                        name="loanAmount"
+                        [(ngModel)]="newLoanObj.loanAmount"
+                        required
+                        #loanAmount="ngModel"
+                        [disabled]="!isEdit"
+                    />
+                    <div class="text-danger" *ngIf="loanAmount.errors && (loanAmount.dirty || loanAmount.touched)">
+                        <p *ngIf="loanAmount.errors.required">Loan amount is required</p>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Apr</label>
+                    <input type="text" class="form-control" name="apr" [(ngModel)]="newLoanObj.apr" #apr="ngModel" required />
+                    <div class="text-danger" *ngIf="apr.errors && (apr.dirty || apr.touched)">
+                        <p *ngIf="apr.errors.required">Apr is required</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Comments</label>
+                    <textarea
+                        class="form-control"
+                        name="comments"
+                        [(ngModel)]="newLoanObj.comments"
+                        #comments="ngModel"
+                        rows="3"
+                    ></textarea>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-warning" (click)="isEdit = !isEdit">Edit</button> &nbsp;
+                    <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Approve</button> &nbsp;
+                    <button type="button" class="btn btn-danger" (click)="rejectApplication()" [disabled]="f.invalid">Reject</button> &nbsp;
+                    <button class="btn btn-danger">Reset</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<div class="modal-footer">
+    <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>
+</div>

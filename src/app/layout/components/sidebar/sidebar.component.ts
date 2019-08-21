@@ -12,10 +12,11 @@ export class SidebarComponent implements OnInit {
     collapsed: boolean;
     showMenu: string;
     pushRightClass: string;
+    loginType: string;
 
     @Output() collapsedEvent = new EventEmitter<boolean>();
 
-    constructor(private translate: TranslateService, public router: Router) {
+    constructor(public translate: TranslateService, public router: Router) {
         this.router.events.subscribe(val => {
             if (
                 val instanceof NavigationEnd &&
@@ -25,6 +26,8 @@ export class SidebarComponent implements OnInit {
                 this.toggleSidebar();
             }
         });
+
+        this.loginType = localStorage.getItem('loginType');
     }
 
     ngOnInit() {

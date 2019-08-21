@@ -7,12 +7,13 @@ import { ActivatedRoute, Router } from '@angular/router';
     styleUrls: ['./loan-status.component.scss']
 })
 export class LoanStatusComponent implements OnInit {
-    private customerInfo: any;
+    public customerInfo: any;
     constructor(private route: ActivatedRoute, private router: Router) {
         const navigation = this.router.getCurrentNavigation();
         if (navigation.extras.queryParams) {
-            this.customerInfo = navigation.extras.queryParams;
-            console.log("Data:", this.customerInfo);
+            this.customerInfo = navigation.extras.queryParams.data;
+            console.log('Data:', this.customerInfo);
+            //this.customerInfo.loanDecision = 'INPROGRESS';
         }
     }
 

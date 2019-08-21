@@ -1,0 +1,190 @@
+<div class="modal-header">
+        <h4 class="modal-title">Application Detail title</h4>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <!-- <form (ngSubmit)="f.form.valid && submitBtn(f)" #f="ngForm" autocomplete="off" novalidate> -->
+        <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
+            <div class="row">
+                <div class="col-12 col-md">
+                    <div class="form-group">
+                        <!-- <label>First Name</label>
+                      <input type="text" class="form-control" [(ngModel)]="newLoanObj.firstName" name="firstName" #firsName="ngModel" placeholder="Enter First Name" [ngClass]="{'is-invalid': f.submitted && firstName.invalid}" autocomplete="off" required>
+                      <div *ngIf="firstName.touched" class="invalidInput">
+                        <div *ngIf="firstName.errors?.required">FirstName is required</div>
+                      </div> -->
+
+                        <div
+                            class="form-group"
+                            [ngClass]="{
+                                'has-danger': firstName.invalid && (firstName.dirty || firstName.touched),
+                                'has-success': firstName.valid && (firstName.dirty || firstName.touched)
+                            }"
+                        >
+                            <label>First Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="firstName"
+                                [(ngModel)]="newLoanObj.firstName"
+                                required
+                                #firstName="ngModel"
+                                [disabled]="!isEdit"
+                            />
+                            <div
+                                class="list-group-item list-group-item-danger"
+                                *ngIf="firstName.errors && (firstName.dirty || firstName.touched)"
+                            >
+                                <p *ngIf="firstName.errors.required">First name is required</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div
+                            class="form-group"
+                            [ngClass]="{
+                                'has-danger': lastName.invalid && (lastName.dirty || lastName.touched),
+                                'has-success': lastName.valid && (lastName.dirty || lastName.touched)
+                            }"
+                        >
+                            <label>Last Name</label>
+                            <input
+                                type="text"
+                                class="form-control"
+                                name="lastName"
+                                [(ngModel)]="newLoanObj.lastName"
+                                required
+                                #lastName="ngModel"
+                                [disabled]="!isEdit"
+                            />
+                            <div class="list-group-item list-group-item-danger" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                                <p *ngIf="lastName.errors.required">Last name is required</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': ssn.invalid && (ssn.dirty || ssn.touched),
+                            'has-success': ssn.valid && (ssn.dirty || ssn.touched)
+                        }"
+                    >
+                        <label>SSN</label>
+                        <input type="text" class="form-control" name="ssn" [(ngModel)]="newLoanObj.SSN" required #ssn="ngModel" [disabled]="!isEdit"/>
+                        <div class="list-group-item list-group-item-danger" *ngIf="ssn.errors && (ssn.dirty || ssn.touched)">
+                            <p *ngIf="ssn.errors.required">SSN is required</p>
+                        </div>
+                    </div>
+
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': age.invalid && (age.dirty || age.touched),
+                            'has-success': age.valid && (age.dirty || age.touched)
+                        }"
+                    >
+                        <label>Age</label>
+                        <input type="text" class="form-control" name="age" [(ngModel)]="newLoanObj.age" required #age="ngModel" [disabled]="!isEdit"/>
+                        <div class="list-group-item list-group-item-danger" *ngIf="age.errors && (age.dirty || age.touched)">
+                            <p *ngIf="age.errors.required">Age is required</p>
+                        </div>
+                    </div>
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': address.invalid && (address.dirty || address.touched),
+                            'has-success': address.valid && (address.dirty || address.touched)
+                        }"
+                    >
+                        <label>Address</label>
+                        <input type="text" class="form-control" name="address" [(ngModel)]="newLoanObj.address" required #address="ngModel" [disabled]="!isEdit"/>
+                        <div class="list-group-item list-group-item-danger" *ngIf="address.errors && (address.dirty || address.touched)">
+                            <p *ngIf="address.errors.required">Address is required</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-md">
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': income.invalid && (income.dirty || income.touched),
+                            'has-success': income.valid && (income.dirty || income.touched)
+                        }"
+                    >
+                        <label>Income</label>
+                        <input type="text" class="form-control" name="income" [(ngModel)]="newLoanObj.income" required #income="ngModel" [disabled]="!isEdit"/>
+                        <div class="list-group-item list-group-item-danger" *ngIf="income.errors && (income.dirty || income.touched)">
+                            <p *ngIf="income.errors.required">Income is required</p>
+                        </div>
+                    </div>
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': income.invalid && (income.dirty || income.touched),
+                            'has-success': income.valid && (income.dirty || income.touched)
+                        }"
+                    >
+                        <label>Loan Amount</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="loanAmount"
+                            [(ngModel)]="newLoanObj.loanAmount"
+                            required
+                            #loanAmount="ngModel"
+                            [disabled]="!isEdit"
+                        />
+                        <div
+                            class="list-group-item list-group-item-danger"
+                            *ngIf="loanAmount.errors && (loanAmount.dirty || loanAmount.touched)"
+                        >
+                            <p *ngIf="loanAmount.errors.required">Loan amount is required</p>
+                        </div>
+                    </div>
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': creditScore.invalid && (creditScore.dirty || creditScore.touched),
+                            'has-success': creditScore.valid && (creditScore.dirty || creditScore.touched)
+                        }"
+                    >
+                        <label>Credit Score</label>
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="creditScore"
+                            [(ngModel)]="newLoanObj.creditScore"
+                            required
+                            #creditScore="ngModel"
+                            [disabled]="!isEdit"
+                        />
+                        <div
+                            class="list-group-item list-group-item-danger"
+                            *ngIf="creditScore.errors && (creditScore.dirty || creditScore.touched)"
+                        >
+                            <p *ngIf="creditScore.errors.required">Credit Score is required</p>
+                        </div>
+                    </div>
+                    <div
+                        class="form-group"
+                        [ngClass]="{
+                            'has-danger': creditScore.invalid && (creditScore.dirty || creditScore.touched),
+                            'has-success': creditScore.valid && (creditScore.dirty || creditScore.touched)
+                        }"
+                    >
+                        <label>Email</label>
+                        <input type="text" class="form-control" name="email" [(ngModel)]="newLoanObj.email" required #email="ngModel" [disabled]="!isEdit"/>
+                        <div class="list-group-item list-group-item-danger" *ngIf="email.errors && (email.dirty || email.touched)">
+                            <p *ngIf="creditScore.errors.required">Email is required</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>
+    </div>

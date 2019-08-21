@@ -110,7 +110,7 @@
           <label>Email</label>
           <input type="text" class="form-control" name="email" [(ngModel)]="newLoanObj.email" required #email="ngModel">
           <div class="list-group-item list-group-item-danger" *ngIf="email.errors && (email.dirty || email.touched)">
-            <p *ngIf="creditScore.errors.required">Email is required</p>
+            <p *ngIf="email.errors.required">Email is required</p>
           </div>
         </div>
         <div class="form-group">

@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
 export class NewLoanApplicationComponent implements OnInit {
   loanForm: FormGroup;
   decisonResponse: {};
-  constructor( private newLoanObj: NewLoan, private httpService: HttpService, private router: Router) {
+  constructor( public newLoanObj: NewLoan, private httpService: HttpService, private router: Router) {
     //this.newLoanObj.firstName = "";
     this.newLoanObj.userId = "test123";
     this.loanForm=new FormGroup({
@@ -33,6 +33,5 @@ export class NewLoanApplicationComponent implements OnInit {
 
       },error=> console.log("Error:",error));
     }
-
   }
 }
