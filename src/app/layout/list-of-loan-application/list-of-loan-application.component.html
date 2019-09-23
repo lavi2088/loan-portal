@@ -1,35 +1,40 @@
-<h3>List of applications:</h3>
+<div class="loan-container">
+  <div class="loan-title">List of applications</div>
+  <div class="loan-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">User Id</th>
+          <th scope="col">Name</th>
+          <th scope="col">Loan Amount</th>
+          <th scope="col">Credit Score</th>
+          <th scope="col">Email</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let loanApp of getLoanApp" (click)="rowClicked(loanApp)">
+          <th scope="row">{{ loanApp.userId }}</th>
+          <td>
+            {{ loanApp.firstName + ' ' + loanApp.lastName }}
+          </td>
+          <td>{{ loanApp.loanAmount}}</td>
+          <td>{{ loanApp.creditScore }}</td>
+          <td
+            [ngClass]="{'text-success': loanApp.status == 'Approved', 'text-warning': loanApp.status == 'In Review', 'text-danger': loanApp.status == 'Declined'}">
+            {{ loanApp.email }}</td>
+        </tr>
+      </tbody>
+    </table>
 
-<table class="table table-striped">
-  <thead>
-  <tr>
-    <th scope="col">User Id</th>
-    <th scope="col">Name</th>
-    <th scope="col">Loan Amount</th>
-    <th scope="col">Credit Score</th>
-    <th scope="col">Email</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr *ngFor="let loanApp of getLoanApp" (click)="rowClicked(loanApp)">
-    <th scope="row">{{ loanApp.userId }}</th>
-    <td>
-      {{ loanApp.firstName + ' ' + loanApp.lastName }}
-    </td>
-    <td>{{ loanApp.loanAmount}}</td>
-    <td>{{ loanApp.creditScore }}</td>
-    <td [ngClass]="{'text-success': loanApp.status == 'Approved', 'text-warning': loanApp.status == 'In Review', 'text-danger': loanApp.status == 'Declined'}">{{ loanApp.email }}</td>
-  </tr>
-  </tbody>
-</table>
-
-<div class="d-flex justify-content-between p-2">
-  <!-- <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
+    <div class="d-flex justify-content-between p-2">
+      <!-- <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize">
   </ngb-pagination> -->
 
-  <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
-    <option [ngValue]="2">2 items per page</option>
-    <option [ngValue]="4">4 items per page</option>
-    <option [ngValue]="6">6 items per page</option>
-  </select>
+      <select class="custom-select" style="width: auto" [(ngModel)]="pageSize">
+        <option [ngValue]="2">2 items per page</option>
+        <option [ngValue]="4">4 items per page</option>
+        <option [ngValue]="6">6 items per page</option>
+      </select>
+    </div>
+  </div>
 </div>

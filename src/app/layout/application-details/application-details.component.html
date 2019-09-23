@@ -4,9 +4,10 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="modal-body">
+    <div class="modal-body loan-container">
         <!-- <form (ngSubmit)="f.form.valid && submitBtn(f)" #f="ngForm" autocomplete="off" novalidate> -->
-        <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
+                <div class="loan-body">
+            <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
             <div class="row">
                 <div class="col-12 col-md">
                     <div class="form-group">
@@ -184,6 +185,7 @@
                 </div>
             </div>
         </form>
+        </div>
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-light" (click)="closeModal()">Close</button>

@@ -10,3 +10,63 @@
         display: none !important;
     }
 }
+
+.container {
+    margin: 0px;
+}
+
+.loan-container {
+    border: 1px rgb(212, 212, 212);
+    border-radius: 5px;
+    border-style: solid;
+    padding: 2px;
+    margin: 0px;
+
+    .card {
+        border-radius: 0;
+        margin: 1px;
+    }
+    .loan-title {
+        border-radius: 5px 5px 0 0;
+        padding: 5px 10px;
+        background-color: rgb(18, 176, 238);
+        font-size: 11px;
+        font-family: Arial, Helvetica, sans-serif;
+        color: #fff;
+        font-weight: 600;
+    }
+    .loan-body {
+        font-size: 11px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .form-group {
+        margin-bottom: 7px;
+    }
+    .form-control {
+        padding: 3px 5px;
+        font-size: 11px
+    }
+    select.form-control {
+        max-height: 25px;
+        font-size: 11px;
+    }
+    label {
+        margin-bottom: 0;
+        margin-top: 0 !important;
+    }
+    .btn {
+        padding: 3px;
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+}
+
+.input-group {
+    select.form-control {
+        max-height: 25px;
+    }
+    .custom-select {
+        padding: 2px 5px;
+        max-height: 30px;
+    }
+}

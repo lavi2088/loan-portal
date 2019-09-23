@@ -1,8 +1,11 @@
 <div class="container">
-  <h3>New Loan Application</h3>
-  <hr />
+  <!-- <h3>New Loan Application</h3>
+  <hr /> -->
   <!-- <form (ngSubmit)="f.form.valid && submitBtn(f)" #f="ngForm" autocomplete="off" novalidate> -->
-  <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
+  <div class="col col-md-8 loan-container">
+    <div class="loan-title">New Loan Application</div>
+    <div class="loan-body">
+    <form novalidate (ngSubmit)="onSubmit(f)" #f="ngForm">
     <div class="row">
       <div class="col-sm">
         <div class="form-group">
@@ -120,4 +123,6 @@
       </div>
     </div>
   </form>
+  </div>
+</div>
 </div>
