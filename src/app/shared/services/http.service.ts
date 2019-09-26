@@ -13,7 +13,7 @@ export class HttpService {
   constructor(private httpClient: HttpClient) {
     //this.baseUrl = "http://drools-springboot-msk-sample.apps.us-west-2.online-starter.openshift.com/api";
     //this.baseUrl = 'http://camunda-apii-camunda-api.b9ad.pro-us-east-1.openshiftapps.com/API';
-    this.baseUrl = 'http://camunda-cors-camunda.b9ad.pro-us-east-1.openshiftapps.com/API/bpm';
+    this.baseUrl = 'http://camunda-java-api-camunda.b9ad.pro-us-east-1.openshiftapps.com/API/bpm';
     this.httpOptions = {
       headers: new HttpHeaders({
         'Content-Type': 'application/json',
